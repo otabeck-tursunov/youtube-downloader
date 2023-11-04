@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/download.css">
+    <title>YouTube downloader | Download page</title>
+</head>
+
+<body>
+<div class="container">
+
+    <!-- animation section -->
+
+    <div class="animation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- /animation section -->
+
+    <!-- content section -->
+
+    <i class="fa-solid fa-circle-info infoIcon"></i>
+
+    <div class="content">
+
+
+        <!-- head section -->
+
+        <div class="head">
+            <img src="/static/img/icon.png" alt="Icon">
+            <h1>YouTube Downloader</h1>
+        </div>
+
+        <!-- /head section -->
+
+        <!-- video section -->
+
+        <div class="video" style="width: 90%; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; margin-bottom: -10px; text-align: center;">
+            <img src="{{url.thumbnail_url}}" controls style="margin: 10px auto; border-radius: 5px;"></img>
+            <p style="margin-top: 10px; color: white;">{{url.title}}</p>
+        </div>
+        <!-- width="350px" height="200px" -->
+        <!-- /video section -->
+
+        <!-- body section -->
+        <form method="post" action="download" class="body">{% csrf_token %}
+            <!--            <div class="body">-->
+            <select name="itag">
+                {% for stream in streams %}
+                <option value="{{stream.itag}}">{{stream.resolution}}</option>
+                {% endfor %}
+                <option value="audio">Mp3</option>
+                <!--                    <option value="144p">144p</option>-->
+                <!--                    <option value="360p">360p</option>-->
+                <!--                    <option value="720p">720p</option>-->
+                <!--                    <option value="1080p">1080p</option>-->
+                <!--                    <option value="Mp3">Mp3</option>-->
+            </select>
+            <input type="submit" value="Yuklab olish">
+            <!--            </div>-->
+        </form>
+
+
+        <button><a href="/"><i class="fa-solid fa-angle-left"></i> Bosh sahifaga qaytish</a></button>
+
+        <!-- /body section -->
+    </div>
+
+    <!-- /content section -->
+
+
+    <!-- info section -->
+
+    <div class="info infoHide">
+        <div class="infocenter">
+            <img src="/static/img/icon.png" alt="Icon">
+            <p>Bu loyihamiz sizga <span>YouTube</span> dan videolarni oson yuklab olish imkonini beradi</p>
+
+            <div class="author authorHide">
+                <h4 class="muallif">Mualliflar <i class="fa-solid fa-chevron-left"></i></h4>
+
+                <h3>Backend developer <span>Otabek Tursunov</span></h3>
+                <h3>Frontend developer <span>Muhammadali Raimjonov</span></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- /info section -->
+
+</div>
+</body>
+<script src="/static/js/app.js"></script>
+</html>

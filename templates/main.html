@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>YouTube downloader | Home Page</title>
+</head>
+
+<body>
+<div class="container">
+
+    <!-- animation section -->
+
+    <div class="animation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- /animation section -->
+
+    <!-- content section -->
+
+    <i class="fa-solid fa-circle-info infoIcon"></i>
+
+    <div class="content">
+
+
+        <!-- head section -->
+
+        <div class="head">
+            <img src="/static/img/icon.png" alt="Icon">
+            <h1>YouTube Downloader</h1>
+        </div>
+
+        <!-- /head section -->
+
+        <!-- body section -->
+        <form method="POST" class="body">{% csrf_token %}
+            <input type="text" name="url" placeholder="Url manzilni kiriting..." class="url">
+            <input type="submit" value="Tasdiqlash">
+            <!--                <button type="submit">Tasdiqlash</button>-->
+        </form>
+
+        <!-- /body section -->
+    </div>
+
+    <!-- /content section -->
+
+
+    <!-- info section -->
+
+    <div class="info infoHide">
+        <div class="infocenter">
+            <img src="/static/img/icon.png" alt="Icon">
+            <p>Bu loyihamiz sizga <span>YouTube</span> dan videolarni oson yuklab olish imkonini beradi</p>
+
+            <div class="author authorHide">
+                <h4 class="muallif">Mualliflar <i class="fa-solid fa-chevron-left"></i></h4>
+
+                <h3>Backend developer: <span>Otabek Tursunov</span></h3>
+                <h3>Frontend developer: <span>Muhammadali Raimjonov</span></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- /info section -->
+
+</div>
+</body>
+<script src="/static/js/app.js"></script>
+</html>
